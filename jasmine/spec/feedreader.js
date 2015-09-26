@@ -54,18 +54,34 @@ $(function() {
 
     /* This is a new test suite named "The menu" */
     describe('The menu', function() {
+        var body = $("body"),
+            menuIcon = $(".menu-icon-link");
+
         /* This is a test that ensures the menu element is
          * hidden by default.
          */
         it('is hidden by default', function() {
-            expect($("body").hasClass("menu-hidden")).toBe(true);
+            expect(body.hasClass("menu-hidden")).toBe(true);
         });
 
-         /* TODO: Write a test that ensures the menu changes
+         /* This is a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
+          * has two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        it('changes visibility when the menu icon is clicked', function() {
+            // Simulate first click
+            menuIcon.click();
+
+            // Should display menu
+            expect(body.hasClass("menu-hidden")).toBe(false);
+
+            // Simulate second click
+            menuIcon.click();
+
+            // Should hide menu
+            expect(body.hasClass("menu-hidden")).toBe(true);
+        });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
